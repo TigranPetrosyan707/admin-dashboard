@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/@blaze/css@x.x.x/dist/blaze/blaze.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Dashboard Panel</title>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <ul class="c-list c-list--unstyled">
+        <li class="c-list__item logo">
+          <h1>ManageMate</h1>
+          <span class="material-symbols-sharp" role="button" id="toggleBtn">
+            keyboard_double_arrow_left
+          </span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+      <div class="main-heading">
+        <h1>Dashboard</h1>
+        <button class="c-button c-button--brand c-button--small add-btn">
+          Add User
+        </button>
+      </div>
+      <div class="o-grid o-grid--demo">
+        <div class="o-grid__cell o-grid__cell--width-20">
+          <select class="c-field" id="filterbyrole">
+            <option>All</option>
+          </select>
+        </div>
+        <input
+          class="c-field"
+          placeholder="Search for users by name or email"
+          type="text"
+          id="searchbar"
+        />
+      </div>
+      <table class="c-table">
+        <thead class="c-table__head">
+          <tr class="c-table__row c-table__row--heading">
+            <th class="c-table__cell">Name</th>
+            <th class="c-table__cell">Email</th>
+            <th class="c-table__cell">Role</th>
+            <th class="c-table__cell">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="c-table__body"></tbody>
+      </table>
+      <div id="no-users-message" class="no-users-message"></div>
+      <nav class="c-pagination">
+        <button class="c-pagination__control" id="prevPage">‹</button>
+        <div class="c-pagination__pages"></div>
+        <button class="c-pagination__control" id="nextPage">›</button>
+      </nav>
+    </main>
+
+    <!-- Modal -->
+    <div aria-hidden class="c-overlay"></div>
+    <div role="dialog" class="o-modal" id="generic-modal">
+      <div class="c-card">
+        <header class="c-card__header">
+          <button type="button" class="c-button c-button--close close-modal">
+            &times;
+          </button>
+          <h2 id="modal-title"></h2>
+        </header>
+
+        <div class="c-card__body" id="modal-body"></div>
+
+        <footer class="c-card__footer">
+          <div class="c-input-group">
+            <button
+              class="c-button c-button--block"
+              id="modal-action-button"
+            ></button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Toast message -->
+    <div role="presentation" class="c-alerts c-alerts--bottomright"></div>
+
+    <!-- Loading Spinner -->
+    <div id="spinner" class="spinner" style="display: none">
+      <div class="loader"></div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
